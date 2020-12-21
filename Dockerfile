@@ -27,11 +27,14 @@ RUN  set -eux; \
   > /dev/null; \
   rm -rf /var/lib/apt/lists/*; \
   \
-RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 ; \
-    dpkg-reconfigure locales ; \
-    mkdir /usr/local/tomcat/webapps/ROOT/
-
+  
 ENV LC_ALL zh_CN.UTF-8
-
 # Add Chinese font 
 COPY fonts/* /usr/share/fonts/truetype/
+
+RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8 ; \
+    dpkg-reconfigure locales ; \
+    mkdir /usr/local/tomcat/webapps/ROOT/; \
+    mkfontscale; \
+    mkfontdir; \
+    fc-cache
