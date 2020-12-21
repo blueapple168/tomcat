@@ -1,8 +1,8 @@
 FROM tomcat:8.5-jdk8
 MAINTAINER blueapple1120@qq.com
 LABEL os="Debian10" \
-      jdk="1.8.0_265" \
-      tomcat="8.5.58"
+      jdk="1.8.0_275" \
+      tomcat="8.5.61"
 
 ENV TZ="Asia/shanghai"
 
